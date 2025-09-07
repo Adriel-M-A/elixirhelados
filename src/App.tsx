@@ -1,4 +1,5 @@
 import "./App.css";
+import "./index.css";
 import Hero from "./components/Hero";
 import Flavors from "./components/Flavors";
 import Location from "./components/Location";
