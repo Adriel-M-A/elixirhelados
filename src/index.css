@@ -1,17 +1,24 @@
 /* src/index.css
-   - Tailwind v4: usamos @import "tailwindcss";
-   - Variables globales en :root (formato H S L para uso con hsl(var(--...)))
-   - Modo oscuro por clase en html.dark
-   - Mantengo tus layers base y utilities y los keyframes existentes
+   Versión ajustada: asegura que html/body/#root ocupen 100% para que min-h-screen funcione.
+   Mantengo tus variables, gradientes y utilidades (tal como antes) y añado margin:0.
 */
 
-/* Import principal de Tailwind v4 */
 @import "tailwindcss";
+
+/* Asegurar que el root y el body ocupen todo el alto del viewport */
+html,
+body,
+#root {
+  height: 100%;
+}
+
+/* Quitar margin por defecto del navegador */
+body {
+  margin: 0;
+}
 
 /* ----------------------------------------------------------
    Variables globales (formato: "hue saturation lightness")
-   IMPORTANT: si en tailwind.config.ts usas "hsl(var(--...))",
-   las variables deben tener ese formato (ej: 45 25% 15%)
    ---------------------------------------------------------- */
 :root {
   /* Base colors */
@@ -103,47 +110,33 @@
   --sidebar-ring: 217.2 91.2% 59.8%;
 }
 
-/* ----------------------------------------------------------
-   Modo oscuro (por clase). Recomiendo usar html.classList.toggle('dark')
-   ---------------------------------------------------------- */
+/* Modo oscuro por clase */
 html.dark {
-  /* Dark mode with rich chocolate tones */
   --background: 25 15% 8%;
   --foreground: 45 20% 95%;
-
   --card: 25 20% 12%;
   --card-foreground: 45 20% 95%;
-
   --popover: 25 20% 12%;
   --popover-foreground: 45 20% 95%;
-
   --primary: 45 60% 85%;
   --primary-foreground: 25 20% 12%;
-
   --secondary: 25 25% 18%;
   --secondary-foreground: 45 20% 90%;
-
   --muted: 25 20% 16%;
   --muted-foreground: 45 10% 60%;
-
   --accent: 350 40% 20%;
   --accent-foreground: 350 60% 90%;
-
-  /* Dark mode ice cream colors */
   --vanilla: 45 30% 20%;
   --strawberry: 350 40% 25%;
   --mint: 150 25% 22%;
   --chocolate: 25 40% 15%;
   --pistachio: 90 20% 25%;
   --blueberry: 240 30% 25%;
-
   --destructive: 0 62.8% 50%;
   --destructive-foreground: 210 40% 98%;
-
   --border: 25 20% 20%;
   --input: 25 20% 18%;
   --ring: 45 60% 85%;
-
   --sidebar-background: 240 5.9% 10%;
   --sidebar-foreground: 240 4.8% 95.9%;
   --sidebar-primary: 224.3 76.3% 48%;
@@ -154,20 +147,9 @@ html.dark {
   --sidebar-ring: 217.2 91.2% 59.8%;
 }
 
-/* ----------------------------------------------------------
-   Capas base (tipografía, normalizaciones)
-   ---------------------------------------------------------- */
+/* Base layer */
 @layer base {
-  /* Si quieres usar utilidades Tailwind con variables, puedes descomentar los @apply */
-  * {
-    /* ejemplo: @apply border-border; */
-  }
-
   body {
-    /* Aplica fondo y texto usando variables globales si lo deseas:
-       si quieres usar utilidades Tailwind en body, descomenta la siguiente linea:
-       @apply bg-background text-foreground;
-    */
     font-family: "Inter", system-ui, -apple-system, sans-serif;
     background-color: hsl(var(--background));
     color: hsl(var(--foreground));
@@ -178,9 +160,7 @@ html.dark {
   }
 }
 
-/* ----------------------------------------------------------
-   Utilities personalizadas y animaciones
-   ---------------------------------------------------------- */
+/* Utilities */
 @layer utilities {
   .animate-float {
     animation: float 6s ease-in-out infinite;

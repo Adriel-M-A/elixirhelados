@@ -1,15 +1,26 @@
+// src/components/Hero.jsx
 import { Button } from "./ui/Button";
 import { Instagram, ShoppingCart } from "lucide-react";
 import logo from "../assets/logo.svg";
 
-const Hero = () => {
+/*
+  Hero component - versión ajustada en colores para parecerse a la imagen objetivo.
+  Comentarios en español. Nombres (component, files, props) en inglés.
+*/
+
+function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-gradient-hero overflow-hidden">
-      {/* Decorative elements */}
+    <section
+      className="relative min-h-screen flex items-center justify-center overflow-hidden
+                        bg-gradient-to-br from-[#fffaf0]  via-[#e7f0e2] to-[#eaf8f0]"
+    >
+      {/* Decorative elements (bolas de fondo) */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-20 left-10 w-32 h-32 bg-strawberry rounded-full opacity-20 animate-pulse"></div>
-        <div className="absolute bottom-20 right-10 w-40 h-40 bg-mint rounded-full opacity-20 animate-pulse animation-delay-1000"></div>
-        <div className="absolute top-1/2 left-1/4 w-24 h-24 bg-vanilla rounded-full opacity-30 animate-pulse animation-delay-2000"></div>
+        {/* fresa suave (muy pálido) */}
+        <div
+          className="absolute top-20 left-10 w-32 h-32 rounded-full opacity-20 animate-pulse"
+          style={{ backgroundColor: "#fdecec" }}
+        />
       </div>
 
       <div className="container mx-auto px-4 text-center relative z-10">
@@ -18,16 +29,19 @@ const Hero = () => {
           <img
             src={logo}
             alt="Elixir Heladería Logo"
-            className="w-64 h-64 mx-auto drop-shadow-premium animate-float"
+            className="w-64 h-64 mx-auto filter drop-shadow-[0_20px_60px_rgba(0,0,0,0.12)] animate-float"
           />
         </div>
 
         {/* Main content */}
         <div className="max-w-4xl mx-auto space-y-6">
-          <h1 className="text-5xl md:text-7xl font-bold text-primary mb-4">
+          {/* Título: color oscuro terroso para lograr contraste */}
+          <h1 className="text-5xl md:text-7xl font-bold mb-4 text-[#3b2a18]">
             Heladería Elixir
           </h1>
-          <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+
+          {/* Párrafo: gris neutral, lectura cómoda */}
+          <p className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto text-[#6b6b6b]">
             Los mejores helados artesanales de Trelew. Sabores únicos y calidad
             premium que despiertan tus sentidos.
           </p>
@@ -36,7 +50,9 @@ const Hero = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Button
               size="lg"
-              className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-premium transition-smooth px-8 py-6 text-lg"
+              /* Botón principal: fondo oscuro terroso, texto blanco, sombra suave */
+              className="bg-[#3b2a18] hover:bg-[#4a3725] text-white shadow-[0_20px_40px_rgba(59,42,24,0.12)]
+                         transition-all duration-300 ease-in-out px-8 py-6 text-lg"
               asChild
             >
               <a
@@ -53,7 +69,9 @@ const Hero = () => {
             <Button
               variant="outline"
               size="lg"
-              className="border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-smooth px-8 py-6 text-lg bg-background/80 backdrop-blur-sm"
+              /* Botón secundario: borde oscuro, fondo translúcido blanco y texto oscuro */
+              className="border border-[#3b2a18] text-[#3b2a18] hover:bg-[#3b2a18] hover:text-white
+                         transition-all duration-300 ease-in-out px-8 py-6 text-lg bg-white/80 backdrop-blur-sm"
               asChild
             >
               <a
@@ -71,6 +89,6 @@ const Hero = () => {
       </div>
     </section>
   );
-};
+}
 
 export default Hero;
