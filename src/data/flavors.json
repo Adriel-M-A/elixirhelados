@@ -1,18 +1,14 @@
 [
     {
-        "name": "Vainilla Premium",
-        "description": "Cremosa vainilla con esencia natural y trocitos de vainilla real",
-        "color": "bg-vanilla",
-        "gradient": "bg-gradient-vanilla",
-        "imageUrl": "",
+        "name": "Frambuesa a la reina",
+        "description": "Helado artesanal con frambuesas frescas y crema suave, un sabor elegante y refrescante en cada bocado.",
+        "imageUrl": "frambuesa-reina.png",
         "popular": true,
         "isNew": false
     },
     {
         "name": "Frutilla Suprema",
         "description": "Helado de frutillas frescas con trozos de fruta natural",
-        "color": "bg-strawberry",
-        "gradient": "bg-gradient-strawberry",
         "imageUrl": "",
         "popular": true,
         "isNew": false
@@ -20,8 +16,6 @@
     {
         "name": "Menta Granizada",
         "description": "Refrescante menta con cristales de chocolate crujientes",
-        "color": "bg-mint",
-        "gradient": "bg-gradient-mint",
         "imageUrl": "",
         "popular": false,
         "isNew": false
@@ -29,8 +23,6 @@
     {
         "name": "Chocolate Intenso",
         "description": "Chocolate belga premium con cacao de origen seleccionado",
-        "color": "bg-chocolate",
-        "gradient": "bg-gradient-radial from-chocolate to-chocolate/80",
         "imageUrl": "",
         "popular": true,
         "isNew": false
@@ -38,8 +30,6 @@
     {
         "name": "Pistacho Siciliano",
         "description": "Exquisito pistacho importado con textura sedosa",
-        "color": "bg-pistachio",
-        "gradient": "bg-gradient-radial from-pistachio to-pistachio/80",
         "imageUrl": "",
         "popular": false,
         "isNew": false
@@ -47,8 +37,6 @@
     {
         "name": "Arándanos Silvestres",
         "description": "Deliciosos arándanos patagónicos en base cremosa",
-        "color": "bg-blueberry",
-        "gradient": "bg-gradient-radial from-blueberry to-blueberry/80",
         "imageUrl": "",
         "popular": false,
         "isNew": false
@@ -56,8 +44,6 @@
     {
         "name": "Dulce de Leche Artesanal",
         "description": "Nuestro exclusivo dulce de leche con nueces caramelizadas",
-        "color": "bg-amber-200",
-        "gradient": "bg-gradient-to-br from-amber-200 to-orange-300",
         "imageUrl": "",
         "popular": false,
         "isNew": true
@@ -65,8 +51,6 @@
     {
         "name": "Frambuesa & Chocolate Blanco",
         "description": "Deliciosa combinación de frambuesas frescas con trozos de chocolate blanco",
-        "color": "bg-pink-200",
-        "gradient": "bg-gradient-to-br from-pink-200 to-rose-300",
         "imageUrl": "",
         "popular": false,
         "isNew": true

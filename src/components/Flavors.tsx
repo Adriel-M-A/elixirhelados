@@ -3,6 +3,8 @@ import { Card, CardContent } from "./ui/Card";
 import { Badge } from "./ui/Badge";
 import NewFlavors from "./NewFlavors";
 import flavorsData from "../data/flavors.json";
+// Importa las imágenes manualmente
+import frambuesaReina from "../assets/frambuesa-reina.png";
 
 /*
   Flavors component
@@ -14,8 +16,6 @@ import flavorsData from "../data/flavors.json";
 interface Flavor {
   name: string;
   description: string;
-  color?: string; // opcional: hex como "#fffaf0"
-  gradient?: string; // opcional: clase Tailwind o string
   imageUrl?: string;
   popular?: boolean;
   isNew?: boolean;
@@ -25,6 +25,12 @@ function Flavors() {
   const flavors = flavorsData as unknown as Flavor[];
   const newFlavors = flavors.filter((flavor) => flavor.isNew);
   const regularFlavors = flavors.filter((flavor) => !flavor.isNew);
+
+  // Mapea nombres de archivo a imports
+  const imageMap: Record<string, string> = {
+    "frambuesa-reina.png": frambuesaReina,
+    // agrega más si tienes más imágenes
+  };
 
   return (
     <section className="py-20 bg-gradient-to-br from-[#fffaf0] via-[#fff4f2] to-[#f7f3ef]">
@@ -45,29 +51,33 @@ function Flavors() {
         {/* Regular Flavors Section */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {regularFlavors.map((flavor) => {
-            // Clase para el contenedor superior (gradiente o fallback por color)
-            const headerClasses = `h-32 relative overflow-hidden ${
-              flavor.gradient ?? ""
-            }`;
-            const headerStyle =
-              !flavor.gradient && flavor.color
-                ? { background: flavor.color } // si flavor.gradient no existe y hay color, usarlo
-                : undefined;
+            // Solo fondo por defecto si no hay imagen
+            let headerClasses = "h-32 relative overflow-hidden";
+            if (!flavor.imageUrl) {
+              headerClasses += " bg-gradient-to-br from-[#fffaf0] to-[#fff6de]";
+            }
+
+            // Si hay imageUrl, busca en el map si es local
+            let imgSrc = "";
+            if (flavor.imageUrl) {
+              const fileName = flavor.imageUrl.split("/").pop() || "";
+              imgSrc = imageMap[fileName] || flavor.imageUrl;
+            }
 
             return (
               <Card
                 key={flavor.name}
                 className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-0 overflow-hidden"
               >
-                <div className={headerClasses} style={headerStyle}>
-                  {flavor.imageUrl ? (
+                <div className={headerClasses}>
+                  {imgSrc ? (
                     <img
-                      src={flavor.imageUrl}
+                      src={imgSrc}
                       alt={flavor.name}
                       className="w-full h-full object-cover"
                     />
                   ) : (
-                    <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-[#fffaf0] to-[#fff6de]">
+                    <div className="w-full h-full flex items-center justify-center">
                       <div className="text-4xl">🍦</div>
                     </div>
                   )}
