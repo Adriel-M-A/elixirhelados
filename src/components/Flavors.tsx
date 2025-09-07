@@ -33,7 +33,7 @@ function Flavors() {
   };
 
   return (
-    <section className="py-20 bg-gradient-to-br from-[#fffaf0] via-[#fff4f2] to-[#f7f3ef]">
+    <section className="py-20 bg-gradient-to-br from-[#FFFDFB] via-[#FFFCF6] to-[#FFFAF0]">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-[#3b2a18] mb-4">
@@ -67,7 +67,7 @@ function Flavors() {
             return (
               <Card
                 key={flavor.name}
-                className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-0 overflow-hidden"
+                className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-0 overflow-hidden bg-white"
               >
                 <div className={headerClasses}>
                   {imgSrc ? (
