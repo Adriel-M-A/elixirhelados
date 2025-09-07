@@ -1,53 +1,23 @@
 import { Card, CardContent } from "./ui/Card";
 import { Badge } from "./ui/Badge";
+import NewFlavors from "./NewFlavors";
+import flavorsData from "../data/flavors.json";
 
-const flavors = [
-  {
-    name: "Vainilla Premium",
-    description:
-      "Cremosa vainilla con esencia natural y trocitos de vainilla real",
-    color: "bg-vanilla",
-    gradient: "bg-gradient-vanilla",
-    popular: true,
-  },
-  {
-    name: "Frutilla Suprema",
-    description: "Helado de frutillas frescas con trozos de fruta natural",
-    color: "bg-strawberry",
-    gradient: "bg-gradient-strawberry",
-    popular: true,
-  },
-  {
-    name: "Menta Granizada",
-    description: "Refrescante menta con cristales de chocolate crujientes",
-    color: "bg-mint",
-    gradient: "bg-gradient-mint",
-    popular: false,
-  },
-  {
-    name: "Chocolate Intenso",
-    description: "Chocolate belga premium con cacao de origen seleccionado",
-    color: "bg-chocolate",
-    gradient: "bg-gradient-radial from-chocolate to-chocolate/80",
-    popular: true,
-  },
-  {
-    name: "Pistacho Siciliano",
-    description: "Exquisito pistacho importado con textura sedosa",
-    color: "bg-pistachio",
-    gradient: "bg-gradient-radial from-pistachio to-pistachio/80",
-    popular: false,
-  },
-  {
-    name: "Arándanos Silvestres",
-    description: "Deliciosos arándanos patagónicos en base cremosa",
-    color: "bg-blueberry",
-    gradient: "bg-gradient-radial from-blueberry to-blueberry/80",
-    popular: false,
-  },
-];
+interface Flavor {
+  name: string;
+  description: string;
+  color: string;
+  gradient: string;
+  imageUrl: string;
+  popular: boolean;
+  isNew: boolean;
+}
 
 const Flavors = () => {
+  const flavors = flavorsData as Flavor[];
+  const newFlavors = flavors.filter((flavor) => flavor.isNew);
+  const regularFlavors = flavors.filter((flavor) => !flavor.isNew);
+
   return (
     <section className="py-20 bg-gradient-premium">
       <div className="container mx-auto px-4">
@@ -61,13 +31,28 @@ const Flavors = () => {
           </p>
         </div>
 
+        {/* New Flavors Section */}
+        <NewFlavors flavors={newFlavors} />
+
+        {/* Regular Flavors Section */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-          {flavors.map((flavor) => (
+          {regularFlavors.map((flavor) => (
             <Card
               key={flavor.name}
               className="group hover:shadow-premium transition-all duration-500 hover:-translate-y-2 border-0 overflow-hidden"
             >
               <div className={`h-32 ${flavor.gradient} relative`}>
+                {flavor.imageUrl ? (
+                  <img
+                    src={flavor.imageUrl}
+                    alt={flavor.name}
+                    className="w-full h-full object-cover"
+                  />
+                ) : (
+                  <div className="w-full h-full flex items-center justify-center">
+                    <div className="text-4xl">🍦</div>
+                  </div>
+                )}
                 {flavor.popular && (
                   <Badge className="absolute top-3 right-3 bg-primary text-primary-foreground shadow-soft">
                     Popular
