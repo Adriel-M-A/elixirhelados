@@ -1,12 +1,14 @@
 // src/components/NewFlavors.tsx
 import { Card, CardContent } from "./ui/Card";
 import { Badge } from "./ui/Badge";
+import { SafeImage } from "./SafeImage";
 
 /*
   NewFlavors component
   - Recibe un array de sabores nuevos (props).
   - Comentarios en español.
   - Uso utilidades Tailwind directas para colores, bordes y sombras.
+  - Ahora maneja imágenes correctamente con SafeImage
 */
 
 interface Flavor {
@@ -50,7 +52,7 @@ function NewFlavors({ flavors }: NewFlavorsProps) {
           return (
             <Card
               key={flavor.name}
-              className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 border-2 border-[#3b2a18]/20 overflow-hidden relative"
+              className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 overflow-hidden relative"
             >
               {/* Badge "¡NUEVO!" */}
               <Badge className="absolute top-4 left-4 z-10 bg-amber-400 text-white font-bold animate-pulse px-3 py-1 rounded">
@@ -59,10 +61,11 @@ function NewFlavors({ flavors }: NewFlavorsProps) {
 
               <div className={headerClasses} style={headerStyle}>
                 {flavor.imageUrl ? (
-                  <img
+                  <SafeImage
                     src={flavor.imageUrl}
                     alt={flavor.name}
                     className="w-full h-full object-cover"
+                    fallbackIcon="🍦"
                   />
                 ) : (
                   <div className="w-full h-full bg-gradient-to-br from-[#fffaf0]/40 to-[#fff6de]/40 flex items-center justify-center">
