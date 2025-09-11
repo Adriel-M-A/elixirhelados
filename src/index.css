@@ -27,6 +27,59 @@
 }
 
 /* ==============================================
+   TEMA PERSONALIZADO PARA TAILWIND V4
+   ============================================== */
+@theme {
+  /* Colores personalizados */
+  --color-primary-custom: var(--color-primary);
+  --color-primary-hover-custom: var(--color-primary-hover);
+  --color-text-secondary-custom: var(--color-text-secondary);
+
+  /* Paleta cremita para heladería */
+  --color-cream-50: #fffaf0;
+  --color-cream-100: #fef9f0;
+  --color-cream-200: #fdf6e3;
+  --color-cream-300: #fff8dc;
+  --color-cream-400: #faf0e6;
+  --color-cream-500: #f5deb3;
+  --color-cream-600: #deb887;
+  --color-cream-700: #d2b48c;
+  --color-cream-800: #bc9a6a;
+  --color-cream-900: #8b7355;
+
+  /* Colores complementarios para badges y acentos */
+  --color-amber-350: #fbbf24;
+  --color-amber-450: #f59e0b;
+
+  /* Animaciones personalizadas */
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-fade-in-up: fadeInUp 0.6s ease-out forwards;
+  --animate-shimmer: shimmer 1.5s infinite;
+  --animate-pulse-soft: pulse-soft 3s ease-in-out infinite;
+  --animate-bounce-gentle: bounce-gentle 2s infinite;
+  --animate-spin-slow: spin 3s linear infinite;
+
+  /* Sombras personalizadas */
+  --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.1);
+  --shadow-premium: 0 25px 50px rgba(0, 0, 0, 0.15);
+  --shadow-card-hover: 0 30px 60px rgba(59, 42, 24, 0.2);
+  --shadow-glow-cream: 0 0 20px rgba(255, 248, 220, 0.6);
+  --shadow-glow-primary: 0 0 20px rgba(59, 42, 24, 0.3);
+
+  /* Espaciado personalizado */
+  --spacing-18: 4.5rem;
+  --spacing-88: 22rem;
+  --spacing-128: 32rem;
+
+  /* Border radius personalizado */
+  --radius-3xl: 2rem;
+
+  /* Timing functions personalizadas */
+  --ease-bounce-in: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ==============================================
    ANIMACIONES PERSONALIZADAS
    ============================================== */
 
@@ -96,29 +149,33 @@
 }
 
 /* ==============================================
-   UTILIDADES PERSONALIZADAS DE TAILWIND 4
+   UTILIDADES PERSONALIZADAS
    ============================================== */
 
 @utility animate-float {
-  animation: float 6s ease-in-out infinite;
+  animation: var(--animate-float);
 }
 
 @utility animate-fade-in-up {
-  animation: fadeInUp 0.6s ease-out forwards;
+  animation: var(--animate-fade-in-up);
 }
 
 @utility animate-shimmer {
   background: linear-gradient(90deg, #f0f0f0 0px, #e0e0e0 40px, #f0f0f0 80px);
   background-size: 200px;
-  animation: shimmer 1.5s infinite;
+  animation: var(--animate-shimmer);
 }
 
 @utility animate-pulse-soft {
-  animation: pulse-soft 3s ease-in-out infinite;
+  animation: var(--animate-pulse-soft);
 }
 
 @utility animate-bounce-gentle {
-  animation: bounce-gentle 2s infinite;
+  animation: var(--animate-bounce-gentle);
+}
+
+@utility animate-spin-slow {
+  animation: var(--animate-spin-slow);
 }
 
 /* Gradientes personalizados */
@@ -161,38 +218,160 @@
   box-shadow: var(--shadow-card-hover);
 }
 
+@utility shadow-glow-cream {
+  box-shadow: var(--shadow-glow-cream);
+}
+
+@utility shadow-glow-primary {
+  box-shadow: var(--shadow-glow-primary);
+}
+
+/* Colores de texto personalizados */
+@utility text-primary-custom {
+  color: var(--color-primary-custom);
+}
+
+@utility text-secondary-custom {
+  color: var(--color-text-secondary-custom);
+}
+
+/* Backgrounds personalizados */
+@utility bg-primary-custom {
+  background-color: var(--color-primary-custom);
+}
+
+@utility bg-primary-hover-custom {
+  background-color: var(--color-primary-hover-custom);
+}
+
+/* Colores de crema */
+@utility bg-cream-50 {
+  background-color: var(--color-cream-50);
+}
+@utility bg-cream-100 {
+  background-color: var(--color-cream-100);
+}
+@utility bg-cream-200 {
+  background-color: var(--color-cream-200);
+}
+@utility bg-cream-300 {
+  background-color: var(--color-cream-300);
+}
+@utility bg-cream-400 {
+  background-color: var(--color-cream-400);
+}
+@utility bg-cream-500 {
+  background-color: var(--color-cream-500);
+}
+@utility bg-cream-600 {
+  background-color: var(--color-cream-600);
+}
+@utility bg-cream-700 {
+  background-color: var(--color-cream-700);
+}
+@utility bg-cream-800 {
+  background-color: var(--color-cream-800);
+}
+@utility bg-cream-900 {
+  background-color: var(--color-cream-900);
+}
+
+@utility text-cream-50 {
+  color: var(--color-cream-50);
+}
+@utility text-cream-100 {
+  color: var(--color-cream-100);
+}
+@utility text-cream-200 {
+  color: var(--color-cream-200);
+}
+@utility text-cream-300 {
+  color: var(--color-cream-300);
+}
+@utility text-cream-400 {
+  color: var(--color-cream-400);
+}
+@utility text-cream-500 {
+  color: var(--color-cream-500);
+}
+@utility text-cream-600 {
+  color: var(--color-cream-600);
+}
+@utility text-cream-700 {
+  color: var(--color-cream-700);
+}
+@utility text-cream-800 {
+  color: var(--color-cream-800);
+}
+@utility text-cream-900 {
+  color: var(--color-cream-900);
+}
+
+/* Espaciado personalizado */
+@utility p-18 {
+  padding: var(--spacing-18);
+}
+@utility m-18 {
+  margin: var(--spacing-18);
+}
+@utility p-88 {
+  padding: var(--spacing-88);
+}
+@utility m-88 {
+  margin: var(--spacing-88);
+}
+@utility p-128 {
+  padding: var(--spacing-128);
+}
+@utility m-128 {
+  margin: var(--spacing-128);
+}
+
+/* Border radius personalizado */
+@utility rounded-3xl {
+  border-radius: var(--radius-3xl);
+}
+
 /* ==============================================
    COMPONENTES PERSONALIZADOS
    ============================================== */
 
+@component .btn-primary-custom {
+  background-color: var(--color-primary-custom);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  transition: all 0.3s var(--ease-smooth);
+
+  &:hover {
+    background-color: var(--color-primary-hover-custom);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-premium);
+  }
+}
+
+@component .card-ice-cream {
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: var(--radius-3xl);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s var(--ease-smooth);
+
+  &:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: var(--shadow-card-hover);
+  }
+}
+
 @component .card-hover {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
+  transition: all 0.3s var(--ease-smooth);
 
-@component .card-hover:hover {
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: var(--shadow-card-hover);
+  &:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: var(--shadow-card-hover);
+  }
 }
-
-@component .text-primary-custom {
-  color: var(--color-primary);
-}
-
-@component .text-secondary-custom {
-  color: var(--color-text-secondary);
-}
-
-@component .bg-primary-custom {
-  background-color: var(--color-primary);
-}
-
-@component .bg-primary-hover-custom:hover {
-  background-color: var(--color-primary-hover);
-}
-
-/* ==============================================
-   EFECTOS ESPECIALES PARA HELADERÍA
-   ============================================== */
 
 @component .ice-cream-glow {
   filter: drop-shadow(0 4px 12px rgba(255, 248, 220, 0.6));
@@ -206,7 +385,19 @@
 @component .loading-skeleton {
   background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
   background-size: 200% 100%;
-  animation: shimmer 2s infinite;
+  animation: var(--animate-shimmer);
+}
+
+/* ==============================================
+   EFECTOS DE TRANSICIÓN
+   ============================================== */
+
+@utility transition-smooth {
+  transition: all 0.3s var(--ease-smooth);
+}
+
+@utility transition-bounce {
+  transition: all 0.3s var(--ease-bounce-in);
 }
 
 /* ==============================================
