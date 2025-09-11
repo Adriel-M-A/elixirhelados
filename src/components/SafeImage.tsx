@@ -1,10 +1,11 @@
-// src/components/SafeImage.tsx
 import { useState } from "react";
-import { getImageUrl } from "../lib/imageUtils";
+import { getImageUrl } from "../lib/imageUtils"; // Ruta corregida
 
 /**
- * Componente de imagen con fallback automático
- * Maneja la carga de imágenes con estados de loading y error
+ * Componente de imagen con fallback automático mejorado
+ * - Estados de loading y error mejorados
+ * - Mejor accesibilidad
+ * - Animaciones suaves
  */
 interface SafeImageProps {
   src: string;
@@ -34,36 +35,48 @@ export const SafeImage: React.FC<SafeImageProps> = ({
     setImageError(true);
   };
 
-  // Si no hay src o hay error, muestra el fallback
+  // Si no hay src o hay error, muestra el fallback mejorado
   if (!src || imageError) {
     return (
       <div
-        className={`flex items-center justify-center bg-gradient-to-br from-orange-100 to-orange-50 ${className}`}
+        className={`flex items-center justify-center bg-gradient-to-br from-[#fff8dc] to-[#faf0e6] ${className}`}
+        role="img"
+        aria-label={`Imagen placeholder para ${alt}`}
       >
-        <div className="text-4xl">{fallbackIcon}</div>
+        <div
+          className="text-4xl animate-bounce"
+          style={{ animationDuration: "2s" }}
+        >
+          {fallbackIcon}
+        </div>
       </div>
     );
   }
 
   return (
     <div className="relative w-full h-full">
+      {/* Loading skeleton mejorado */}
       {isLoading && (
         <div
-          className={`absolute inset-0 flex items-center justify-center bg-gray-100 ${className}`}
+          className={`absolute inset-0 flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100 ${className}`}
         >
-          <div className="animate-pulse">
-            <div className="text-2xl">🍦</div>
+          <div className="animate-pulse flex flex-col items-center space-y-2">
+            <div className="text-2xl animate-bounce">🍦</div>
+            <div className="h-2 w-16 bg-gray-200 rounded animate-pulse"></div>
           </div>
         </div>
       )}
+
       <img
         src={imageUrl}
         alt={alt}
         className={`${className} ${
           isLoading ? "opacity-0" : "opacity-100"
-        } transition-opacity duration-300`}
+        } transition-opacity duration-500 ease-in-out`}
         onLoad={handleImageLoad}
         onError={handleImageError}
+        loading="lazy"
+        decoding="async"
       />
     </div>
   );
