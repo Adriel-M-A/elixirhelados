@@ -35,11 +35,7 @@ const Hero = () => {
 
           {/* Action buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button
-              size="lg"
-              className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-premium transition-smooth px-8 py-6 text-lg"
-              asChild
-            >
+            <Button size="lg" className="px-8 py-6 text-lg" asChild>
               <a
                 href="https://www.pedidosya.com.ar/restaurantes/trelew/heladeria-elixir-ef286799-2d2a-4cf7-a2f6-4321f55d3b52-menu?fbclid=PAZXh0bgNhZW0CMTEAAadzNloSxJth1iS_mtd17a-8oJ8dtjGvGA_8cIiLFfz2Du75dG7eLVOCYfSSiQ_aem_HWZv90-Wakl6lkswNb67UA"
                 target="_blank"
