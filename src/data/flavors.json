@@ -2,8 +2,6 @@
     {
         "name": "Frambuesa a la reina",
         "description": "Helado artesanal con frambuesas frescas y crema suave, un sabor elegante y refrescante en cada bocado.",
-        "color": "#E91E63",
-        "gradient": "bg-gradient-to-br from-pink-400 to-red-400",
         "imageUrl": "frambuesa-reina.png",
         "popular": true,
         "isNew": false
@@ -11,8 +9,6 @@
     {
         "name": "Dulce de Leche Artesanal",
         "description": "Helado cremoso hecho con dulce de leche casero, ofreciendo un sabor auténtico y tradicional que encanta a todos.",
-        "color": "#D2691E",
-        "gradient": "bg-gradient-to-br from-amber-300 to-orange-400",
         "imageUrl": "dulce-de-leche.png",
         "popular": false,
         "isNew": true
@@ -20,8 +16,6 @@
     {
         "name": "Granizado",
         "description": "Helado cremoso granizado con trozos de chocolate, una combinación perfecta de texturas y sabores.",
-        "color": "#8B4513",
-        "gradient": "bg-gradient-to-br from-stone-400 to-stone-600",
         "imageUrl": "granizado.png",
         "popular": false,
         "isNew": false
@@ -29,8 +23,6 @@
     {
         "name": "Chocolate Intenso",
         "description": "Chocolate belga premium con cacao de origen seleccionado",
-        "color": "#3C1810",
-        "gradient": "bg-gradient-to-br from-amber-900 to-stone-900",
         "imageUrl": "chocolate-intenso.png",
         "popular": true,
         "isNew": false
@@ -38,8 +30,6 @@
     {
         "name": "Pistacho Siciliano",
         "description": "Exquisito pistacho importado con textura sedosa",
-        "color": "#9ACD32",
-        "gradient": "bg-gradient-to-br from-green-300 to-green-500",
         "imageUrl": "pistacho-siciliano.jpg",
         "popular": false,
         "isNew": false
@@ -47,8 +37,6 @@
     {
         "name": "Arándanos Silvestres",
         "description": "Deliciosos arándanos patagónicos en base cremosa",
-        "color": "#4B0082",
-        "gradient": "bg-gradient-to-br from-purple-400 to-indigo-500",
         "imageUrl": "arandanos-silvestres.jpg",
         "popular": false,
         "isNew": false
@@ -56,8 +44,6 @@
     {
         "name": "Dulce de Leche con Nueces",
         "description": "Nuestro exclusivo dulce de leche con nueces caramelizadas",
-        "color": "#CD853F",
-        "gradient": "bg-gradient-to-br from-yellow-600 to-orange-600",
         "imageUrl": "dulce-leche-nueces.jpg",
         "popular": false,
         "isNew": true
@@ -65,8 +51,6 @@
     {
         "name": "Frambuesa & Chocolate Blanco",
         "description": "Deliciosa combinación de frambuesas frescas con trozos de chocolate blanco",
-        "color": "#FFB6C1",
-        "gradient": "bg-gradient-to-br from-pink-300 to-rose-400",
         "imageUrl": "frambuesa-chocolate-blanco.jpg",
         "popular": false,
         "isNew": false
