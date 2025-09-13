@@ -1,58 +1,148 @@
 @import "tailwindcss";
 
-/* Suprimir warnings del editor para reglas de Tailwind v4 */
-/* stylelint-disable-next-line at-rule-no-unknown */
-
 /* ==============================================
-   VARIABLES CSS PERSONALIZADAS PARA HELADERÍA
+   VARIABLES CSS PARA SISTEMA DE COLORES
    ============================================== */
 :root {
+  /* Sistema de colores base */
+  --background: 0 0% 100%;
+  --foreground: 224 71.4% 4.1%;
+
   /* Colores principales de la heladería */
-  --color-primary: #3b2a18;
-  --color-primary-hover: #4a3725;
-  --color-text-secondary: #6b6b6b;
+  --primary: 25 47% 15%; /* #3b2a18 - marrón chocolate */
+  --primary-foreground: 210 40% 98%;
 
-  /* Colores de fondo cremitas */
-  --color-cream-light: #fffaf0;
-  --color-cream-medium: #fef9f0;
-  --color-cream-warm: #fdf6e3;
-  --color-cream-soft: #fff8dc;
-  --color-cream-pale: #faf0e6;
+  --secondary: 39 100% 97%; /* #fffaf0 - crema suave */
+  --secondary-foreground: 25 47% 15%;
 
-  /* Colores para fallbacks de imágenes */
-  --color-fallback-from: #fff8dc;
-  --color-fallback-to: #faf0e6;
+  --muted: 39 50% 95%; /* #faf0e6 - crema pálida */
+  --muted-foreground: 215.4 16.3% 46.9%;
 
-  /* Sombras personalizadas */
+  --accent: 43 100% 94%; /* #fff8dc - vainilla */
+  --accent-foreground: 25 47% 15%;
+
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 210 40% 98%;
+
+  --border: 214.3 31.8% 91.4%;
+  --input: 214.3 31.8% 91.4%;
+  --ring: 25 47% 15%;
+
+  --card: 0 0% 100%;
+  --card-foreground: 224 71.4% 4.1%;
+
+  --popover: 0 0% 100%;
+  --popover-foreground: 224 71.4% 4.1%;
+
+  /* Colores de sabores de helado */
+  --vanilla: 43 100% 94%; /* #fff8dc */
+  --strawberry: 348 83% 47%; /* #e91e63 */
+  --mint: 142 76% 36%; /* #10b981 */
+  --chocolate: 25 47% 15%; /* #3b2a18 */
+  --pistachio: 82 39% 30%; /* #6b7c32 */
+  --blueberry: 263 69% 42%; /* #4f46e5 */
+
+  /* Gradientes personalizados */
+  --gradient-vanilla: linear-gradient(
+    135deg,
+    hsl(43 100% 94%) 0%,
+    hsl(39 100% 97%) 50%,
+    hsl(39 50% 95%) 100%
+  );
+  --gradient-strawberry: linear-gradient(
+    135deg,
+    hsl(348 83% 47%) 0%,
+    hsl(330 81% 60%) 100%
+  );
+  --gradient-mint: linear-gradient(
+    135deg,
+    hsl(142 76% 36%) 0%,
+    hsl(160 84% 39%) 100%
+  );
+  --gradient-hero: linear-gradient(
+    135deg,
+    hsl(39 100% 97%) 0%,
+    hsl(142 20% 92%) 50%,
+    hsl(160 20% 94%) 100%
+  );
+  --gradient-premium: linear-gradient(
+    135deg,
+    hsl(43 100% 94%) 0%,
+    hsl(39 100% 97%) 50%,
+    hsl(39 50% 95%) 100%
+  );
+
+  /* Sombras */
   --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.1);
+  --shadow-card: 0 4px 16px rgba(0, 0, 0, 0.05);
   --shadow-premium: 0 25px 50px rgba(0, 0, 0, 0.15);
-  --shadow-card-hover: 0 30px 60px rgba(59, 42, 24, 0.2);
+
+  /* Transiciones */
+  --transition-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+  /* Radio base */
+  --radius: 0.75rem;
+}
+
+/* ==============================================
+   DARK MODE (opcional para futuro)
+   ============================================== */
+.dark {
+  --background: 224 71.4% 4.1%;
+  --foreground: 210 40% 98%;
+
+  --primary: 43 100% 94%;
+  --primary-foreground: 25 47% 15%;
+
+  --secondary: 25 47% 15%;
+  --secondary-foreground: 210 40% 98%;
+
+  --muted: 215 27.9% 16.9%;
+  --muted-foreground: 217.9 10.6% 64.9%;
+
+  --accent: 215 27.9% 16.9%;
+  --accent-foreground: 210 40% 98%;
+
+  --card: 224 71.4% 4.1%;
+  --card-foreground: 210 40% 98%;
+
+  --popover: 224 71.4% 4.1%;
+  --popover-foreground: 210 40% 98%;
 }
 
 /* ==============================================
    TEMA PERSONALIZADO PARA TAILWIND V4
    ============================================== */
 @theme {
-  /* Colores personalizados */
-  --color-primary-custom: var(--color-primary);
-  --color-primary-hover-custom: var(--color-primary-hover);
-  --color-text-secondary-custom: var(--color-text-secondary);
+  /* Colores principales mapeados para Tailwind */
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
 
-  /* Paleta cremita para heladería */
-  --color-cream-50: #fffaf0;
-  --color-cream-100: #fef9f0;
-  --color-cream-200: #fdf6e3;
-  --color-cream-300: #fff8dc;
-  --color-cream-400: #faf0e6;
-  --color-cream-500: #f5deb3;
-  --color-cream-600: #deb887;
-  --color-cream-700: #d2b48c;
-  --color-cream-800: #bc9a6a;
-  --color-cream-900: #8b7355;
-
-  /* Colores complementarios para badges y acentos */
-  --color-amber-350: #fbbf24;
-  --color-amber-450: #f59e0b;
+  /* Colores de sabores */
+  --color-vanilla: hsl(var(--vanilla));
+  --color-strawberry: hsl(var(--strawberry));
+  --color-mint: hsl(var(--mint));
+  --color-chocolate: hsl(var(--chocolate));
+  --color-pistachio: hsl(var(--pistachio));
+  --color-blueberry: hsl(var(--blueberry));
 
   /* Animaciones personalizadas */
   --animate-float: float 6s ease-in-out infinite;
@@ -60,32 +150,11 @@
   --animate-shimmer: shimmer 1.5s infinite;
   --animate-pulse-soft: pulse-soft 3s ease-in-out infinite;
   --animate-bounce-gentle: bounce-gentle 2s infinite;
-  --animate-spin-slow: spin 3s linear infinite;
-
-  /* Sombras personalizadas */
-  --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.1);
-  --shadow-premium: 0 25px 50px rgba(0, 0, 0, 0.15);
-  --shadow-card-hover: 0 30px 60px rgba(59, 42, 24, 0.2);
-  --shadow-glow-cream: 0 0 20px rgba(255, 248, 220, 0.6);
-  --shadow-glow-primary: 0 0 20px rgba(59, 42, 24, 0.3);
-
-  /* Espaciado personalizado */
-  --spacing-18: 4.5rem;
-  --spacing-88: 22rem;
-  --spacing-128: 32rem;
-
-  /* Border radius personalizado */
-  --radius-3xl: 2rem;
-
-  /* Timing functions personalizadas */
-  --ease-bounce-in: cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* ==============================================
-   ANIMACIONES PERSONALIZADAS
+   KEYFRAMES PARA ANIMACIONES
    ============================================== */
-
 @keyframes float {
   0%,
   100% {
@@ -154,19 +223,12 @@
 /* ==============================================
    UTILIDADES PERSONALIZADAS
    ============================================== */
-
 @utility animate-float {
   animation: var(--animate-float);
 }
 
 @utility animate-fade-in-up {
   animation: var(--animate-fade-in-up);
-}
-
-@utility animate-shimmer {
-  background: linear-gradient(90deg, #f0f0f0 0px, #e0e0e0 40px, #f0f0f0 80px);
-  background-size: 200px;
-  animation: var(--animate-shimmer);
 }
 
 @utility animate-pulse-soft {
@@ -177,257 +239,143 @@
   animation: var(--animate-bounce-gentle);
 }
 
-@utility animate-spin-slow {
-  animation: var(--animate-spin-slow);
+/* Gradientes */
+@utility bg-gradient-vanilla {
+  background-image: var(--gradient-vanilla);
 }
 
-/* Gradientes personalizados */
-@utility bg-gradient-premium {
-  background: linear-gradient(
-    135deg,
-    var(--color-cream-light) 0%,
-    var(--color-cream-medium) 50%,
-    var(--color-cream-warm) 100%
-  );
+@utility bg-gradient-strawberry {
+  background-image: var(--gradient-strawberry);
+}
+
+@utility bg-gradient-mint {
+  background-image: var(--gradient-mint);
 }
 
 @utility bg-gradient-hero {
-  background: linear-gradient(
-    135deg,
-    var(--color-cream-light) 0%,
-    #e7f0e2 50%,
-    #eaf8f0 100%
-  );
+  background-image: var(--gradient-hero);
 }
 
-@utility bg-gradient-fallback {
-  background: linear-gradient(
-    135deg,
-    var(--color-fallback-from) 0%,
-    var(--color-fallback-to) 100%
-  );
+@utility bg-gradient-premium {
+  background-image: var(--gradient-premium);
 }
 
-/* Sombras personalizadas */
+/* Sombras */
 @utility shadow-soft {
   box-shadow: var(--shadow-soft);
+}
+
+@utility shadow-card {
+  box-shadow: var(--shadow-card);
 }
 
 @utility shadow-premium {
   box-shadow: var(--shadow-premium);
 }
 
-@utility shadow-card-hover {
-  box-shadow: var(--shadow-card-hover);
+@utility drop-shadow-premium {
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.15));
 }
 
-@utility shadow-glow-cream {
-  box-shadow: var(--shadow-glow-cream);
+/* Animation delays para elementos decorativos */
+@utility animation-delay-1000 {
+  animation-delay: 1s;
 }
 
-@utility shadow-glow-primary {
-  box-shadow: var(--shadow-glow-primary);
+@utility animation-delay-2000 {
+  animation-delay: 2s;
 }
 
-/* Colores de texto personalizados */
-@utility text-primary-custom {
-  color: var(--color-primary-custom);
+/* Transiciones */
+@utility transition-smooth {
+  transition-timing-function: var(--transition-smooth);
+  transition-duration: 300ms;
+  transition-property: all;
 }
 
-@utility text-secondary-custom {
-  color: var(--color-text-secondary-custom);
-}
-
-/* Backgrounds personalizados */
-@utility bg-primary-custom {
-  background-color: var(--color-primary-custom);
-}
-
-@utility bg-primary-hover-custom {
-  background-color: var(--color-primary-hover-custom);
-}
-
-/* Colores de crema */
-@utility bg-cream-50 {
-  background-color: var(--color-cream-50);
-}
-@utility bg-cream-100 {
-  background-color: var(--color-cream-100);
-}
-@utility bg-cream-200 {
-  background-color: var(--color-cream-200);
-}
-@utility bg-cream-300 {
-  background-color: var(--color-cream-300);
-}
-@utility bg-cream-400 {
-  background-color: var(--color-cream-400);
-}
-@utility bg-cream-500 {
-  background-color: var(--color-cream-500);
-}
-@utility bg-cream-600 {
-  background-color: var(--color-cream-600);
-}
-@utility bg-cream-700 {
-  background-color: var(--color-cream-700);
-}
-@utility bg-cream-800 {
-  background-color: var(--color-cream-800);
-}
-@utility bg-cream-900 {
-  background-color: var(--color-cream-900);
-}
-
-@utility text-cream-50 {
-  color: var(--color-cream-50);
-}
-@utility text-cream-100 {
-  color: var(--color-cream-100);
-}
-@utility text-cream-200 {
-  color: var(--color-cream-200);
-}
-@utility text-cream-300 {
-  color: var(--color-cream-300);
-}
-@utility text-cream-400 {
-  color: var(--color-cream-400);
-}
-@utility text-cream-500 {
-  color: var(--color-cream-500);
-}
-@utility text-cream-600 {
-  color: var(--color-cream-600);
-}
-@utility text-cream-700 {
-  color: var(--color-cream-700);
-}
-@utility text-cream-800 {
-  color: var(--color-cream-800);
-}
-@utility text-cream-900 {
-  color: var(--color-cream-900);
-}
-
-/* Espaciado personalizado */
-@utility p-18 {
-  padding: var(--spacing-18);
-}
-@utility m-18 {
-  margin: var(--spacing-18);
-}
-@utility p-88 {
-  padding: var(--spacing-88);
-}
-@utility m-88 {
-  margin: var(--spacing-88);
-}
-@utility p-128 {
-  padding: var(--spacing-128);
-}
-@utility m-128 {
-  margin: var(--spacing-128);
-}
-
-/* Border radius personalizado */
-@utility rounded-3xl {
-  border-radius: var(--radius-3xl);
+@utility transition-bounce {
+  transition-timing-function: var(--transition-bounce);
+  transition-duration: 300ms;
+  transition-property: all;
 }
 
 /* ==============================================
    COMPONENTES PERSONALIZADOS
    ============================================== */
-
-@component .btn-primary-custom {
-  background-color: var(--color-primary-custom);
-  color: white;
+@component .btn-primary {
+  background-color: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
   padding: 0.75rem 1.5rem;
-  border-radius: 0.5rem;
+  border-radius: var(--radius);
   font-weight: 600;
-  box-shadow: 0 20px 40px rgba(59, 42, 24, 0.12);
-  transition: all 300ms ease-in-out;
-
-  &:hover {
-    background-color: var(--color-primary-hover-custom);
-  }
+  box-shadow: var(--shadow-card);
+  transition: all 300ms var(--transition-smooth);
 }
 
-@component .btn-secondary-custom {
-  border: 1px solid var(--color-primary-custom);
-  color: var(--color-primary-custom);
-  background-color: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(4px);
-  padding: 0.75rem 1.5rem;
-  border-radius: 0.5rem;
-  font-weight: 600;
-  transition: all 300ms ease-in-out;
+@component .btn-primary:hover {
+  background-color: hsl(var(--primary) / 0.9);
+  box-shadow: var(--shadow-premium);
+  transform: translateY(-2px);
+}
 
-  &:hover {
-    background-color: var(--color-primary-custom);
-    color: white;
-  }
+@component .btn-secondary {
+  border: 1px solid hsl(var(--primary));
+  color: hsl(var(--primary));
+  background-color: hsl(var(--secondary));
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius);
+  font-weight: 600;
+  transition: all 300ms var(--transition-smooth);
+}
+
+@component .btn-secondary:hover {
+  background-color: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+  transform: translateY(-2px);
 }
 
 @component .card-ice-cream {
-  background-color: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
-  border-radius: var(--radius-3xl);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  transition: all 0.3s var(--ease-smooth);
-
-  &:hover {
-    transform: translateY(-8px) scale(1.02);
-    box-shadow: var(--shadow-card-hover);
-  }
+  background-color: hsl(var(--card));
+  border: 1px solid hsl(var(--border));
+  border-radius: calc(var(--radius) * 1.5);
+  box-shadow: var(--shadow-card);
+  transition: all 300ms var(--transition-smooth);
 }
 
-@component .card-hover {
-  transition: all 0.3s var(--ease-smooth);
-
-  &:hover {
-    transform: translateY(-8px) scale(1.02);
-    box-shadow: var(--shadow-card-hover);
-  }
-}
-
-@component .ice-cream-glow {
-  filter: drop-shadow(0 4px 12px rgba(255, 248, 220, 0.6));
-}
-
-@component .cream-backdrop {
-  backdrop-filter: blur(10px);
-  background-color: rgba(255, 255, 255, 0.9);
-}
-
-@component .loading-skeleton {
-  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
-  background-size: 200% 100%;
-  animation: var(--animate-shimmer);
+@component .card-ice-cream:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: var(--shadow-premium);
 }
 
 /* ==============================================
-   EFECTOS DE TRANSICIÓN
+   ESTILOS BASE DEL ROOT
    ============================================== */
-
-@utility transition-smooth {
-  transition: all 0.3s var(--ease-smooth);
+#root {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  text-align: center;
 }
 
-@utility transition-bounce {
-  transition: all 0.3s var(--ease-bounce-in);
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+
+.logo:hover {
+  filter: drop-shadow(0 0 2em hsl(var(--primary) / 0.3));
 }
 
 /* ==============================================
-   SCROLL BEHAVIOR SUAVE
+   SCROLL BEHAVIOR Y ACCESIBILIDAD
    ============================================== */
 html {
   scroll-behavior: smooth;
 }
 
-/* ==============================================
-   MEJORAS DE ACCESIBILIDAD
-   ============================================== */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -439,9 +387,8 @@ html {
   }
 }
 
-/* Focus states mejorados */
 *:focus-visible {
-  outline: 2px solid var(--color-primary);
+  outline: 2px solid hsl(var(--primary));
   outline-offset: 2px;
   border-radius: 4px;
 }
